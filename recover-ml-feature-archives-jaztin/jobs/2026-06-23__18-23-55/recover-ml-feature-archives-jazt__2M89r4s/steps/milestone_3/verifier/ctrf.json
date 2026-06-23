@@ -1,0 +1,115 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 0,
+            "failed": 9,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782239055489,
+            "stop": 1782239057488
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m3.py::TestMilestone3::test_decision_json_exists",
+                "status": "failed",
+                "duration": 242,
+                "start": 1782239055581,
+                "stop": 1782239055823,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101fb7e54d0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_decision_json_has_opa_structure",
+                "status": "failed",
+                "duration": 255,
+                "start": 1782239055823,
+                "stop": 1782239056078,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c4ea10>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_only_shard_a_and_b_are_recoverable",
+                "status": "failed",
+                "duration": 196,
+                "start": 1782239056079,
+                "stop": 1782239056275,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c4f110>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_stdout_lists_recoverable_paths_sorted",
+                "status": "failed",
+                "duration": 197,
+                "start": 1782239056276,
+                "stop": 1782239056473,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c4f4d0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_exit_code_2_with_denials",
+                "status": "failed",
+                "duration": 197,
+                "start": 1782239056474,
+                "stop": 1782239056671,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c4f890>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_stderr_has_deny_prefix",
+                "status": "failed",
+                "duration": 209,
+                "start": 1782239056671,
+                "stop": 1782239056880,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c4fed0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_custom_paths_respected",
+                "status": "failed",
+                "duration": 205,
+                "start": 1782239056881,
+                "stop": 1782239057086,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c58610>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_all_bad_archive_triggers_no_recoverable_denial",
+                "status": "failed",
+                "duration": 197,
+                "start": 1782239057087,
+                "stop": 1782239057284,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c58d10>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_all_valid_archive_exits_zero",
+                "status": "failed",
+                "duration": 203,
+                "start": 1782239057284,
+                "stop": 1782239057487,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7101f5c59410>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Unexpected OPA output structure: 'result'\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...tput-dir', '/app/output'], returncode=1, stdout='', stderr=\"RuntimeError: Unexpected OPA output structure: 'result'\\n\").returncode\n\n/tests/test_m3.py:36: AssertionError"
+            }
+        ]
+    }
+}

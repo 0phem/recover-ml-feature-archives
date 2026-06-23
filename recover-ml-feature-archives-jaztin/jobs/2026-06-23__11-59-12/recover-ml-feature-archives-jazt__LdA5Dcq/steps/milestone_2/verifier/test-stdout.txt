@@ -1,0 +1,233 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.2.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.4.1
+collected 6 items
+
+../tests/test_m2.py EEEEEE                                               [100%]
+
+==================================== ERRORS ====================================
+_________ ERROR at setup of TestMilestone2.test_opa_input_json_exists __________
+
+self = <test_m2.TestMilestone2 object at 0x7d4159cc4590>
+
+    @pytest.fixture(autouse=True)
+    def run_cli(self):
+        result = subprocess.run(
+            CLI + ["--archive", ARCHIVE, "--facts-dir", FACTS_DIR,
+                   "--policy", "/app/policy/recover.rego", "--output-dir", "/app/output"],
+            capture_output=True, text=True,
+        )
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         Traceback (most recent call last):
+E           File "/app/recover.py", line 129, in <module>
+E             main()
+E           File "/app/recover.py", line 122, in main
+E             opa_input = build_opa_input(catalog)
+E                         ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/app/recover.py", line 80, in build_opa_input
+E             con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+E         duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+E         Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+E         	Candidate functions:
+E         	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         
+E         LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+E                                                       ^
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...n\nLINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)\n                                              ^\n').returncode
+
+/tests/test_m2.py:31: AssertionError
+_______ ERROR at setup of TestMilestone2.test_opa_input_top_level_fields _______
+
+self = <test_m2.TestMilestone2 object at 0x7d4159b44450>
+
+    @pytest.fixture(autouse=True)
+    def run_cli(self):
+        result = subprocess.run(
+            CLI + ["--archive", ARCHIVE, "--facts-dir", FACTS_DIR,
+                   "--policy", "/app/policy/recover.rego", "--output-dir", "/app/output"],
+            capture_output=True, text=True,
+        )
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         Traceback (most recent call last):
+E           File "/app/recover.py", line 129, in <module>
+E             main()
+E           File "/app/recover.py", line 122, in main
+E             opa_input = build_opa_input(catalog)
+E                         ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/app/recover.py", line 80, in build_opa_input
+E             con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+E         duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+E         Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+E         	Candidate functions:
+E         	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         
+E         LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+E                                                       ^
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...n\nLINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)\n                                              ^\n').returncode
+
+/tests/test_m2.py:31: AssertionError
+_________ ERROR at setup of TestMilestone2.test_opa_input_shard_fields _________
+
+self = <test_m2.TestMilestone2 object at 0x7d4159b447d0>
+
+    @pytest.fixture(autouse=True)
+    def run_cli(self):
+        result = subprocess.run(
+            CLI + ["--archive", ARCHIVE, "--facts-dir", FACTS_DIR,
+                   "--policy", "/app/policy/recover.rego", "--output-dir", "/app/output"],
+            capture_output=True, text=True,
+        )
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         Traceback (most recent call last):
+E           File "/app/recover.py", line 129, in <module>
+E             main()
+E           File "/app/recover.py", line 122, in main
+E             opa_input = build_opa_input(catalog)
+E                         ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/app/recover.py", line 80, in build_opa_input
+E             con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+E         duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+E         Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+E         	Candidate functions:
+E         	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         
+E         LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+E                                                       ^
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...n\nLINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)\n                                              ^\n').returncode
+
+/tests/test_m2.py:31: AssertionError
+_______ ERROR at setup of TestMilestone2.test_has_required_columns_logic _______
+
+self = <test_m2.TestMilestone2 object at 0x7d4159b44e10>
+
+    @pytest.fixture(autouse=True)
+    def run_cli(self):
+        result = subprocess.run(
+            CLI + ["--archive", ARCHIVE, "--facts-dir", FACTS_DIR,
+                   "--policy", "/app/policy/recover.rego", "--output-dir", "/app/output"],
+            capture_output=True, text=True,
+        )
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         Traceback (most recent call last):
+E           File "/app/recover.py", line 129, in <module>
+E             main()
+E           File "/app/recover.py", line 122, in main
+E             opa_input = build_opa_input(catalog)
+E                         ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/app/recover.py", line 80, in build_opa_input
+E             con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+E         duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+E         Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+E         	Candidate functions:
+E         	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         
+E         LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+E                                                       ^
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...n\nLINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)\n                                              ^\n').returncode
+
+/tests/test_m2.py:31: AssertionError
+______ ERROR at setup of TestMilestone2.test_shard_d_missing_label_column ______
+
+self = <test_m2.TestMilestone2 object at 0x7d4159b45110>
+
+    @pytest.fixture(autouse=True)
+    def run_cli(self):
+        result = subprocess.run(
+            CLI + ["--archive", ARCHIVE, "--facts-dir", FACTS_DIR,
+                   "--policy", "/app/policy/recover.rego", "--output-dir", "/app/output"],
+            capture_output=True, text=True,
+        )
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         Traceback (most recent call last):
+E           File "/app/recover.py", line 129, in <module>
+E             main()
+E           File "/app/recover.py", line 122, in main
+E             opa_input = build_opa_input(catalog)
+E                         ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/app/recover.py", line 80, in build_opa_input
+E             con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+E         duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+E         Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+E         	Candidate functions:
+E         	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         
+E         LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+E                                                       ^
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...n\nLINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)\n                                              ^\n').returncode
+
+/tests/test_m2.py:31: AssertionError
+______ ERROR at setup of TestMilestone2.test_shards_count_matches_catalog ______
+
+self = <test_m2.TestMilestone2 object at 0x7d4159b457d0>
+
+    @pytest.fixture(autouse=True)
+    def run_cli(self):
+        result = subprocess.run(
+            CLI + ["--archive", ARCHIVE, "--facts-dir", FACTS_DIR,
+                   "--policy", "/app/policy/recover.rego", "--output-dir", "/app/output"],
+            capture_output=True, text=True,
+        )
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         Traceback (most recent call last):
+E           File "/app/recover.py", line 129, in <module>
+E             main()
+E           File "/app/recover.py", line 122, in main
+E             opa_input = build_opa_input(catalog)
+E                         ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/app/recover.py", line 80, in build_opa_input
+E             con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+E         duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+E         Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+E         	Candidate functions:
+E         	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+E         
+E         LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+E                                                       ^
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...n\nLINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)\n                                              ^\n').returncode
+
+/tests/test_m2.py:31: AssertionError
+=========================== short test summary info ============================
+ERROR ../tests/test_m2.py::TestMilestone2::test_opa_input_json_exists - Asser...
+ERROR ../tests/test_m2.py::TestMilestone2::test_opa_input_top_level_fields - ...
+ERROR ../tests/test_m2.py::TestMilestone2::test_opa_input_shard_fields - Asse...
+ERROR ../tests/test_m2.py::TestMilestone2::test_has_required_columns_logic - ...
+ERROR ../tests/test_m2.py::TestMilestone2::test_shard_d_missing_label_column
+ERROR ../tests/test_m2.py::TestMilestone2::test_shards_count_matches_catalog
+============================== 6 errors in 1.35s ===============================

@@ -1,0 +1,115 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 0,
+            "failed": 9,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782237007100,
+            "stop": 1782237008813
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m3.py::TestMilestone3::test_decision_json_exists",
+                "status": "failed",
+                "duration": 201,
+                "start": 1782237007189,
+                "stop": 1782237007390,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578aa66da90>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_decision_json_has_opa_structure",
+                "status": "failed",
+                "duration": 181,
+                "start": 1782237007391,
+                "stop": 1782237007572,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a4e8d0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_only_shard_a_and_b_are_recoverable",
+                "status": "failed",
+                "duration": 174,
+                "start": 1782237007572,
+                "stop": 1782237007746,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a4efd0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_stdout_lists_recoverable_paths_sorted",
+                "status": "failed",
+                "duration": 176,
+                "start": 1782237007746,
+                "stop": 1782237007922,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a4f390>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_exit_code_2_with_denials",
+                "status": "failed",
+                "duration": 176,
+                "start": 1782237007922,
+                "stop": 1782237008098,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a4f750>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_stderr_has_deny_prefix",
+                "status": "failed",
+                "duration": 187,
+                "start": 1782237008099,
+                "stop": 1782237008286,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a4fd90>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_custom_paths_respected",
+                "status": "failed",
+                "duration": 180,
+                "start": 1782237008286,
+                "stop": 1782237008466,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a584d0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_all_bad_archive_triggers_no_recoverable_denial",
+                "status": "failed",
+                "duration": 171,
+                "start": 1782237008467,
+                "stop": 1782237008638,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a58bd0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_all_valid_archive_exits_zero",
+                "status": "failed",
+                "duration": 175,
+                "start": 1782237008638,
+                "stop": 1782237008813,
+                "retries": 0,
+                "file_path": "test_m3.py",
+                "trace": "self = <test_m3.TestMilestone3 object at 0x7578a4a592d0>\n\n    @pytest.fixture(autouse=True)\n    def run_default(self):\n        result = run_cli()\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         RuntimeError: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m3.py:36: AssertionError"
+            }
+        ]
+    }
+}

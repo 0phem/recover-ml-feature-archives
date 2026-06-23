@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.2.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.4.1
+collected 6 items
+
+../tests/test_m2.py ...F..                                               [100%]
+
+=================================== FAILURES ===================================
+________________ TestMilestone2.test_has_required_columns_logic ________________
+
+self = <test_m2.TestMilestone2 object at 0x7d3a4f75c8d0>
+
+    def test_has_required_columns_logic(self):
+        """has_required_columns must be True iff every required column is present in the shard."""
+        catalog = {e["path"]: e for e in self._load_catalog()}
+        for shard in self._load_opa()["shards"]:
+            path = shard["path"]
+            assert path in catalog, f"OPA shard {path} not in catalog"
+            shard_cols = set(catalog[path]["columns"])
+            expected = all(c in shard_cols for c in REQUIRED_COLUMNS)
+>           assert shard["has_required_columns"] == expected, (
+                f"{path}: has_required_columns={shard['has_required_columns']} expected={expected}"
+            )
+E           AssertionError: /app/archive/shard_a.parquet: has_required_columns=False expected=True
+E           assert False == True
+
+/tests/test_m2.py:76: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_m2.py::TestMilestone2::test_opa_input_json_exists
+PASSED ../tests/test_m2.py::TestMilestone2::test_opa_input_top_level_fields
+PASSED ../tests/test_m2.py::TestMilestone2::test_opa_input_shard_fields
+PASSED ../tests/test_m2.py::TestMilestone2::test_shard_d_missing_label_column
+PASSED ../tests/test_m2.py::TestMilestone2::test_shards_count_matches_catalog
+FAILED ../tests/test_m2.py::TestMilestone2::test_has_required_columns_logic
+========================= 1 failed, 5 passed in 1.20s ==========================

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/app/recover.py", line 129, in <module>
+    main()
+  File "/app/recover.py", line 122, in main
+    opa_input = build_opa_input(catalog)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/recover.py", line 80, in build_opa_input
+    con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
+duckdb.duckdb.InvalidInputException: Invalid Input Error: Attempting to execute an unsuccessful or closed pending query result
+Error: Binder Error: No function matches the given name and argument types 'read_json_auto(STRUCT(path VARCHAR, file_type VARCHAR, row_count INTEGER, "columns" VARCHAR[], size_bytes INTEGER, checksum_verified BOOLEAN)[])'. You might need to add explicit type casts.
+	Candidate functions:
+	read_json_auto(VARCHAR, convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+	read_json_auto(VARCHAR[], convert_strings_to_integers : BOOLEAN, maximum_sample_files : BIGINT, timestamp_format : VARCHAR, field_appearance_threshold : DOUBLE, timestampformat : VARCHAR, date_format : VARCHAR, filename : BOOLEAN, union_by_name : BOOLEAN, compression : VARCHAR, maximum_depth : BIGINT, columns : ANY, sample_size : BIGINT, hive_types : ANY, hive_types_autocast : BOOLEAN, maximum_object_size : UINTEGER, format : VARCHAR, ignore_errors : BOOLEAN, hive_partitioning : BOOLEAN, auto_detect : BOOLEAN, records : VARCHAR, dateformat : VARCHAR)
+
+LINE 1: CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)
+                                              ^

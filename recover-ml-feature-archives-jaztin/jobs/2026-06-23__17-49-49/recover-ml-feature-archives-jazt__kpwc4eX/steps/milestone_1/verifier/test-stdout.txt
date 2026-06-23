@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.2.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.4.1
+collected 6 items
+
+../tests/test_m1.py ......                                               [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_m1.py::TestMilestone1::test_catalog_json_exists
+PASSED ../tests/test_m1.py::TestMilestone1::test_catalog_is_nonempty_array
+PASSED ../tests/test_m1.py::TestMilestone1::test_catalog_entries_have_required_fields
+PASSED ../tests/test_m1.py::TestMilestone1::test_catalog_row_counts_match_polars
+PASSED ../tests/test_m1.py::TestMilestone1::test_catalog_checksum_verified_accuracy
+PASSED ../tests/test_m1.py::TestMilestone1::test_catalog_only_contains_data_files
+============================== 6 passed in 0.99s ===============================

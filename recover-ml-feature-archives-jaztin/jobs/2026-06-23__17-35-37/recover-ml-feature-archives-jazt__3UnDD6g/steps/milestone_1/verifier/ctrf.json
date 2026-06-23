@@ -1,0 +1,79 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782236160642,
+            "stop": 1782236161575
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m1.py::TestMilestone1::test_catalog_json_exists",
+                "status": "passed",
+                "duration": 133,
+                "start": 1782236160730,
+                "stop": 1782236160863,
+                "retries": 0,
+                "file_path": "test_m1.py"
+            },
+            {
+                "name": "test_m1.py::TestMilestone1::test_catalog_is_nonempty_array",
+                "status": "passed",
+                "duration": 154,
+                "start": 1782236160864,
+                "stop": 1782236161018,
+                "retries": 0,
+                "file_path": "test_m1.py"
+            },
+            {
+                "name": "test_m1.py::TestMilestone1::test_catalog_entries_have_required_fields",
+                "status": "passed",
+                "duration": 138,
+                "start": 1782236161018,
+                "stop": 1782236161156,
+                "retries": 0,
+                "file_path": "test_m1.py"
+            },
+            {
+                "name": "test_m1.py::TestMilestone1::test_catalog_row_counts_match_polars",
+                "status": "passed",
+                "duration": 146,
+                "start": 1782236161156,
+                "stop": 1782236161302,
+                "retries": 0,
+                "file_path": "test_m1.py"
+            },
+            {
+                "name": "test_m1.py::TestMilestone1::test_catalog_checksum_verified_accuracy",
+                "status": "passed",
+                "duration": 138,
+                "start": 1782236161302,
+                "stop": 1782236161440,
+                "retries": 0,
+                "file_path": "test_m1.py"
+            },
+            {
+                "name": "test_m1.py::TestMilestone1::test_catalog_only_contains_data_files",
+                "status": "passed",
+                "duration": 134,
+                "start": 1782236161440,
+                "stop": 1782236161574,
+                "retries": 0,
+                "file_path": "test_m1.py"
+            }
+        ]
+    }
+}

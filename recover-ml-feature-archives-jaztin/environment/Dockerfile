@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bookworm@sha256:ad9eb6b79e05aa36fedb6a6edfd59caf4de6edeeef88c25a4adb2fdaed4e6e69
+FROM python:3.11-slim-bookworm@sha256:e2d3af735aff6eeee600b1933bedd99da6645fedf572cc12ef4cc1331f2ceebe
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -9,7 +9,7 @@ RUN apt-get update \
         tmux \
     && rm -rf /var/lib/apt/lists/*
 
-ARG OPA_VERSION=0.65.0
+ARG OPA_VERSION=0.60.0
 RUN curl -fsSL \
     "https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64_static" \
     -o /usr/local/bin/opa \
@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir \
     pyarrow==16.1.0 \
     pyyaml==6.0.1 \
     pytest==8.2.2 \
-    pytest-ctrf-json==0.0.9
+    pytest-json-ctrf==0.4.1
 
 COPY setup_archive.py /app/setup_archive.py
 RUN python /app/setup_archive.py

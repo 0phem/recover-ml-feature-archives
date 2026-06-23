@@ -1,0 +1,30 @@
+{
+    "id": "87dedcee-6757-4a35-9152-a79fbb9fbd0f",
+    "started_at": "2026-06-23T17:35:37.728414",
+    "finished_at": "2026-06-23T17:36:24.560344",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.3333333333333333
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.3333333333333333": [
+                            "recover-ml-feature-archives-jazt__3UnDD6g"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

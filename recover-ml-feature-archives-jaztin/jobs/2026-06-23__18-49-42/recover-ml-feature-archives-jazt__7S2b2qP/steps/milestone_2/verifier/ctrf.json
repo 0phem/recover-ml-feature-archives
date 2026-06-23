@@ -1,0 +1,79 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782240607459,
+            "stop": 1782240609159
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_json_exists",
+                "status": "passed",
+                "duration": 501,
+                "start": 1782240607528,
+                "stop": 1782240608029,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_top_level_fields",
+                "status": "passed",
+                "duration": 369,
+                "start": 1782240608029,
+                "stop": 1782240608398,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_shard_fields",
+                "status": "passed",
+                "duration": 198,
+                "start": 1782240608398,
+                "stop": 1782240608596,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_has_required_columns_logic",
+                "status": "passed",
+                "duration": 189,
+                "start": 1782240608597,
+                "stop": 1782240608786,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_shard_d_missing_label_column",
+                "status": "passed",
+                "duration": 188,
+                "start": 1782240608786,
+                "stop": 1782240608974,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_shards_count_matches_catalog",
+                "status": "passed",
+                "duration": 185,
+                "start": 1782240608974,
+                "stop": 1782240609159,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            }
+        ]
+    }
+}

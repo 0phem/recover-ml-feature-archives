@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.2.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.4.1
+collected 9 items
+
+../tests/test_m3.py .........                                            [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_m3.py::TestMilestone3::test_decision_json_exists
+PASSED ../tests/test_m3.py::TestMilestone3::test_decision_json_has_opa_structure
+PASSED ../tests/test_m3.py::TestMilestone3::test_only_shard_a_and_b_are_recoverable
+PASSED ../tests/test_m3.py::TestMilestone3::test_stdout_lists_recoverable_paths_sorted
+PASSED ../tests/test_m3.py::TestMilestone3::test_exit_code_2_with_denials
+PASSED ../tests/test_m3.py::TestMilestone3::test_stderr_has_deny_prefix
+PASSED ../tests/test_m3.py::TestMilestone3::test_custom_paths_respected
+PASSED ../tests/test_m3.py::TestMilestone3::test_all_bad_archive_triggers_no_recoverable_denial
+PASSED ../tests/test_m3.py::TestMilestone3::test_all_valid_archive_exits_zero
+============================== 9 passed in 3.65s ===============================

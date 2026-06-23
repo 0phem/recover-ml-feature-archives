@@ -1,0 +1,4 @@
+DENY: Shard /app/archive/shard_c.parquet is unverified or has a bad checksum and will be excluded.
+DENY: Shard /app/archive/shard_f.parquet is unverified or has a bad checksum and will be excluded.
+/app/archive/shard_a.parquet
+/app/archive/shard_b.csv

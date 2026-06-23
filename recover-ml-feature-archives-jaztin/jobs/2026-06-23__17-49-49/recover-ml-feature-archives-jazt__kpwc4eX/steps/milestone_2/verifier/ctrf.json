@@ -1,0 +1,85 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 0,
+            "failed": 6,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782237003293,
+            "stop": 1782237004509
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_json_exists",
+                "status": "failed",
+                "duration": 193,
+                "start": 1782237003312,
+                "stop": 1782237003505,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7706318b07d0>\n\n    @pytest.fixture(autouse=True)\n    def run_cli(self):\n        result = subprocess.run(\n            CLI + [\"--archive\", ARCHIVE, \"--facts-dir\", FACTS_DIR,\n                   \"--policy\", \"/app/policy/recover.rego\", \"--output-dir\", \"/app/output\"],\n            capture_output=True, text=True,\n        )\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         Traceback (most recent call last):\nE           File \"/app/recover.py\", line 137, in <module>\nE             main()\nE           File \"/app/recover.py\", line 130, in main\nE             opa_input = build_opa_input(catalog)\nE                         ^^^^^^^^^^^^^^^^^^^^^^^^\nE           File \"/app/recover.py\", line 80, in build_opa_input\nE             con.execute(\"CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\", [json.dumps(catalog)])\nE         duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m2.py:31: AssertionError"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_top_level_fields",
+                "status": "failed",
+                "duration": 170,
+                "start": 1782237003505,
+                "stop": 1782237003675,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7706318b1090>\n\n    @pytest.fixture(autouse=True)\n    def run_cli(self):\n        result = subprocess.run(\n            CLI + [\"--archive\", ARCHIVE, \"--facts-dir\", FACTS_DIR,\n                   \"--policy\", \"/app/policy/recover.rego\", \"--output-dir\", \"/app/output\"],\n            capture_output=True, text=True,\n        )\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         Traceback (most recent call last):\nE           File \"/app/recover.py\", line 137, in <module>\nE             main()\nE           File \"/app/recover.py\", line 130, in main\nE             opa_input = build_opa_input(catalog)\nE                         ^^^^^^^^^^^^^^^^^^^^^^^^\nE           File \"/app/recover.py\", line 80, in build_opa_input\nE             con.execute(\"CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\", [json.dumps(catalog)])\nE         duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m2.py:31: AssertionError"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_shard_fields",
+                "status": "failed",
+                "duration": 166,
+                "start": 1782237003675,
+                "stop": 1782237003841,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7706318b15d0>\n\n    @pytest.fixture(autouse=True)\n    def run_cli(self):\n        result = subprocess.run(\n            CLI + [\"--archive\", ARCHIVE, \"--facts-dir\", FACTS_DIR,\n                   \"--policy\", \"/app/policy/recover.rego\", \"--output-dir\", \"/app/output\"],\n            capture_output=True, text=True,\n        )\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         Traceback (most recent call last):\nE           File \"/app/recover.py\", line 137, in <module>\nE             main()\nE           File \"/app/recover.py\", line 130, in main\nE             opa_input = build_opa_input(catalog)\nE                         ^^^^^^^^^^^^^^^^^^^^^^^^\nE           File \"/app/recover.py\", line 80, in build_opa_input\nE             con.execute(\"CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\", [json.dumps(catalog)])\nE         duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m2.py:31: AssertionError"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_has_required_columns_logic",
+                "status": "failed",
+                "duration": 207,
+                "start": 1782237003841,
+                "stop": 1782237004048,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7706318b1150>\n\n    @pytest.fixture(autouse=True)\n    def run_cli(self):\n        result = subprocess.run(\n            CLI + [\"--archive\", ARCHIVE, \"--facts-dir\", FACTS_DIR,\n                   \"--policy\", \"/app/policy/recover.rego\", \"--output-dir\", \"/app/output\"],\n            capture_output=True, text=True,\n        )\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         Traceback (most recent call last):\nE           File \"/app/recover.py\", line 137, in <module>\nE             main()\nE           File \"/app/recover.py\", line 130, in main\nE             opa_input = build_opa_input(catalog)\nE                         ^^^^^^^^^^^^^^^^^^^^^^^^\nE           File \"/app/recover.py\", line 80, in build_opa_input\nE             con.execute(\"CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\", [json.dumps(catalog)])\nE         duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m2.py:31: AssertionError"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_shard_d_missing_label_column",
+                "status": "failed",
+                "duration": 190,
+                "start": 1782237004049,
+                "stop": 1782237004239,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7706318b1a90>\n\n    @pytest.fixture(autouse=True)\n    def run_cli(self):\n        result = subprocess.run(\n            CLI + [\"--archive\", ARCHIVE, \"--facts-dir\", FACTS_DIR,\n                   \"--policy\", \"/app/policy/recover.rego\", \"--output-dir\", \"/app/output\"],\n            capture_output=True, text=True,\n        )\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         Traceback (most recent call last):\nE           File \"/app/recover.py\", line 137, in <module>\nE             main()\nE           File \"/app/recover.py\", line 130, in main\nE             opa_input = build_opa_input(catalog)\nE                         ^^^^^^^^^^^^^^^^^^^^^^^^\nE           File \"/app/recover.py\", line 80, in build_opa_input\nE             con.execute(\"CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\", [json.dumps(catalog)])\nE         duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m2.py:31: AssertionError"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_shards_count_matches_catalog",
+                "status": "failed",
+                "duration": 270,
+                "start": 1782237004239,
+                "stop": 1782237004509,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7706318b20d0>\n\n    @pytest.fixture(autouse=True)\n    def run_cli(self):\n        result = subprocess.run(\n            CLI + [\"--archive\", ARCHIVE, \"--facts-dir\", FACTS_DIR,\n                   \"--policy\", \"/app/policy/recover.rego\", \"--output-dir\", \"/app/output\"],\n            capture_output=True, text=True,\n        )\n>       assert result.returncode in (0, 2), (\n            f\"CLI failed (exit {result.returncode}):\\n{result.stderr}\"\n        )\nE       AssertionError: CLI failed (exit 1):\nE         Traceback (most recent call last):\nE           File \"/app/recover.py\", line 137, in <module>\nE             main()\nE           File \"/app/recover.py\", line 130, in main\nE             opa_input = build_opa_input(catalog)\nE                         ^^^^^^^^^^^^^^^^^^^^^^^^\nE           File \"/app/recover.py\", line 80, in build_opa_input\nE             con.execute(\"CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\", [json.dumps(catalog)])\nE         duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!\nE         Did you mean \"range\"?\nE         LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\nE                                                           ^\nE         \nE       assert 1 in (0, 2)\nE        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...E 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)\\n                                                  ^\\n').returncode\n\n/tests/test_m2.py:31: AssertionError"
+            }
+        ]
+    }
+}

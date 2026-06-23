@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/app/recover.py", line 137, in <module>
+    main()
+  File "/app/recover.py", line 130, in main
+    opa_input = build_opa_input(catalog)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/recover.py", line 80, in build_opa_input
+    con.execute("CREATE TABLE catalog AS SELECT * FROM (VALUES (?::JSON)) t(data), json_each(data)", [json.dumps(catalog)])
+duckdb.duckdb.CatalogException: Catalog Error: Table Function with name json_each does not exist!
+Did you mean "range"?
+LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)
+                                                  ^

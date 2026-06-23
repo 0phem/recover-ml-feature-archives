@@ -81,28 +81,21 @@ def build_catalog(archive_dir: str) -> list[dict[str, Any]]:
     return catalog
 
 
-def build_opa_input(catalog: list[dict[str, Any]]) -> dict[str, Any]:
+def build_opa_input(catalog):
+    import tempfile, os
     con = duckdb.connect()
-    con.execute("CREATE TABLE catalog AS SELECT * FROM read_json_auto(?)", [catalog])
-    required_json = json.dumps(REQUIRED_COLUMNS)
-    rows = con.execute(f"""
-        SELECT
-            path,
-            file_type,
-            row_count,
-            checksum_verified,
-            size_bytes,
-            (
-                SELECT COUNT(*)
-                FROM (SELECT UNNEST(columns) AS col) t
-                WHERE col IN (SELECT UNNEST(CAST({required_json!r} AS VARCHAR[])))
-            ) = {len(REQUIRED_COLUMNS)} AS has_required_columns
-        FROM catalog
-        ORDER BY path
-    """).fetchall()
+    tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False)
+    tmp.write(json.dumps(catalog))
+    tmp.flush()
+    tmp.close()
+    con.execute(f"CREATE TABLE catalog AS SELECT * FROM read_json_auto(\'{tmp.name}\')")
+    os.unlink(tmp.name)
+    required = REQUIRED_COLUMNS
+    rows = con.execute("SELECT path, file_type, row_count, checksum_verified, size_bytes, columns FROM catalog ORDER BY path").fetchall()
     shards = []
     for row in rows:
-        path, file_type, row_count, checksum_verified, size_bytes, has_req = row
+        path, file_type, row_count, checksum_verified, size_bytes, columns = row
+        has_req = all(c in columns for c in required)
         shards.append({
             "path": path,
             "file_type": file_type,

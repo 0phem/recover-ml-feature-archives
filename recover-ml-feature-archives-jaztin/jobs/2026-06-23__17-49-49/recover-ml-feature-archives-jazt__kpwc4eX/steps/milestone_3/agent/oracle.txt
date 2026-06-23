@@ -1,0 +1,4 @@
+RuntimeError: Catalog Error: Table Function with name json_each does not exist!
+Did you mean "range"?
+LINE 1: ...ECT * FROM (VALUES (?::JSON)) t(data), json_each(data)
+                                                  ^

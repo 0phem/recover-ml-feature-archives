@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.2.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.4.1
+collected 6 items
+
+../tests/test_m2.py ......                                               [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_m2.py::TestMilestone2::test_opa_input_json_exists
+PASSED ../tests/test_m2.py::TestMilestone2::test_opa_input_top_level_fields
+PASSED ../tests/test_m2.py::TestMilestone2::test_opa_input_shard_fields
+PASSED ../tests/test_m2.py::TestMilestone2::test_has_required_columns_logic
+PASSED ../tests/test_m2.py::TestMilestone2::test_shard_d_missing_label_column
+PASSED ../tests/test_m2.py::TestMilestone2::test_shards_count_matches_catalog
+============================== 6 passed in 1.08s ===============================

@@ -1,0 +1,82 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782237178281,
+            "stop": 1782237179486
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_json_exists",
+                "status": "passed",
+                "duration": 241,
+                "start": 1782237178301,
+                "stop": 1782237178542,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_top_level_fields",
+                "status": "passed",
+                "duration": 216,
+                "start": 1782237178542,
+                "stop": 1782237178758,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_opa_input_shard_fields",
+                "status": "passed",
+                "duration": 176,
+                "start": 1782237178759,
+                "stop": 1782237178935,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_has_required_columns_logic",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 189,
+                "start": 1782237178936,
+                "stop": 1782237179125,
+                "retries": 0,
+                "file_path": "test_m2.py",
+                "trace": "self = <test_m2.TestMilestone2 object at 0x7d3a4f75c8d0>\n\n    def test_has_required_columns_logic(self):\n        \"\"\"has_required_columns must be True iff every required column is present in the shard.\"\"\"\n        catalog = {e[\"path\"]: e for e in self._load_catalog()}\n        for shard in self._load_opa()[\"shards\"]:\n            path = shard[\"path\"]\n            assert path in catalog, f\"OPA shard {path} not in catalog\"\n            shard_cols = set(catalog[path][\"columns\"])\n            expected = all(c in shard_cols for c in REQUIRED_COLUMNS)\n>           assert shard[\"has_required_columns\"] == expected, (\n                f\"{path}: has_required_columns={shard['has_required_columns']} expected={expected}\"\n            )\nE           AssertionError: /app/archive/shard_a.parquet: has_required_columns=False expected=True\nE           assert False == True\n\n/tests/test_m2.py:76: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_shard_d_missing_label_column",
+                "status": "passed",
+                "duration": 184,
+                "start": 1782237179125,
+                "stop": 1782237179309,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_shards_count_matches_catalog",
+                "status": "passed",
+                "duration": 176,
+                "start": 1782237179309,
+                "stop": 1782237179485,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            }
+        ]
+    }
+}

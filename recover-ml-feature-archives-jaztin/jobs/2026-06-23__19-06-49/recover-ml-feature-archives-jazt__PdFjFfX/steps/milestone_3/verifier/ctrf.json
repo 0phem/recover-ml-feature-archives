@@ -1,0 +1,106 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.2.2"
+        },
+        "summary": {
+            "tests": 9,
+            "passed": 9,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782241629536,
+            "stop": 1782241633190
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_m3.py::TestMilestone3::test_decision_json_exists",
+                "status": "passed",
+                "duration": 245,
+                "start": 1782241629631,
+                "stop": 1782241629876,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_decision_json_has_opa_structure",
+                "status": "passed",
+                "duration": 270,
+                "start": 1782241629877,
+                "stop": 1782241630147,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_only_shard_a_and_b_are_recoverable",
+                "status": "passed",
+                "duration": 262,
+                "start": 1782241630148,
+                "stop": 1782241630410,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_stdout_lists_recoverable_paths_sorted",
+                "status": "passed",
+                "duration": 488,
+                "start": 1782241630410,
+                "stop": 1782241630898,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_exit_code_2_with_denials",
+                "status": "passed",
+                "duration": 472,
+                "start": 1782241630898,
+                "stop": 1782241631370,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_stderr_has_deny_prefix",
+                "status": "passed",
+                "duration": 414,
+                "start": 1782241631370,
+                "stop": 1782241631784,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_custom_paths_respected",
+                "status": "passed",
+                "duration": 423,
+                "start": 1782241631785,
+                "stop": 1782241632208,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_all_bad_archive_triggers_no_recoverable_denial",
+                "status": "passed",
+                "duration": 555,
+                "start": 1782241632208,
+                "stop": 1782241632763,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            },
+            {
+                "name": "test_m3.py::TestMilestone3::test_all_valid_archive_exits_zero",
+                "status": "passed",
+                "duration": 427,
+                "start": 1782241632763,
+                "stop": 1782241633190,
+                "retries": 0,
+                "file_path": "test_m3.py"
+            }
+        ]
+    }
+}

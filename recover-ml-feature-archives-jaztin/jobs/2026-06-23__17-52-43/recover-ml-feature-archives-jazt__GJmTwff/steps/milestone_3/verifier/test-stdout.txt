@@ -1,0 +1,182 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.2.2, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.4.1
+collected 9 items
+
+../tests/test_m3.py EEEEEEEEE                                            [100%]
+
+==================================== ERRORS ====================================
+__________ ERROR at setup of TestMilestone3.test_decision_json_exists __________
+
+self = <test_m3.TestMilestone3 object at 0x702ee68be050>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+____ ERROR at setup of TestMilestone3.test_decision_json_has_opa_structure _____
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e4edd0>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+___ ERROR at setup of TestMilestone3.test_only_shard_a_and_b_are_recoverable ___
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e4f4d0>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+_ ERROR at setup of TestMilestone3.test_stdout_lists_recoverable_paths_sorted __
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e4f890>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+________ ERROR at setup of TestMilestone3.test_exit_code_2_with_denials ________
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e4fc50>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+_________ ERROR at setup of TestMilestone3.test_stderr_has_deny_prefix _________
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e582d0>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+_________ ERROR at setup of TestMilestone3.test_custom_paths_respected _________
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e589d0>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+_ ERROR at setup of TestMilestone3.test_all_bad_archive_triggers_no_recoverable_denial _
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e590d0>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+______ ERROR at setup of TestMilestone3.test_all_valid_archive_exits_zero ______
+
+self = <test_m3.TestMilestone3 object at 0x702ee0e597d0>
+
+    @pytest.fixture(autouse=True)
+    def run_default(self):
+        result = run_cli()
+>       assert result.returncode in (0, 2), (
+            f"CLI failed (exit {result.returncode}):\n{result.stderr}"
+        )
+E       AssertionError: CLI failed (exit 1):
+E         RuntimeError: opa eval failed (exit 2):
+E         
+E         
+E       assert 1 in (0, 2)
+E        +  where 1 = CompletedProcess(args=['/usr/local/bin/python', '/app/recover.py', '--archive', '/app/archive', '--facts-dir', '/app/f...r.rego', '--output-dir', '/app/output'], returncode=1, stdout='', stderr='RuntimeError: opa eval failed (exit 2):\n\n').returncode
+
+/tests/test_m3.py:36: AssertionError
+=========================== short test summary info ============================
+ERROR ../tests/test_m3.py::TestMilestone3::test_decision_json_exists - Assert...
+ERROR ../tests/test_m3.py::TestMilestone3::test_decision_json_has_opa_structure
+ERROR ../tests/test_m3.py::TestMilestone3::test_only_shard_a_and_b_are_recoverable
+ERROR ../tests/test_m3.py::TestMilestone3::test_stdout_lists_recoverable_paths_sorted
+ERROR ../tests/test_m3.py::TestMilestone3::test_exit_code_2_with_denials - As...
+ERROR ../tests/test_m3.py::TestMilestone3::test_stderr_has_deny_prefix - Asse...
+ERROR ../tests/test_m3.py::TestMilestone3::test_custom_paths_respected - Asse...
+ERROR ../tests/test_m3.py::TestMilestone3::test_all_bad_archive_triggers_no_recoverable_denial
+ERROR ../tests/test_m3.py::TestMilestone3::test_all_valid_archive_exits_zero
+============================== 9 errors in 1.95s ===============================
