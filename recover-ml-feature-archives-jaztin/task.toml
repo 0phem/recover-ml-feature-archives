@@ -1,0 +1,43 @@
+version = "2.0"
+
+[metadata]
+author_name = "jaztin"
+author_email = "anonymous"
+difficulty = "medium"
+category = "software-engineering"
+subcategories = ["tool_specific", "db_interaction"]
+number_of_milestones = 3
+codebase_size = "small"
+languages = ["python", "rego", "bash"]
+tags = ["opa", "polars", "duckdb", "policy-enforcement", "data-recovery"]
+expert_time_estimate_min = 120
+junior_time_estimate_min = 240
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+workdir = "/app"
+
+[[steps]]
+name = "milestone_1"
+[steps.agent]
+timeout_sec = 900.0
+[steps.verifier]
+timeout_sec = 120.0
+
+[[steps]]
+name = "milestone_2"
+[steps.agent]
+timeout_sec = 900.0
+[steps.verifier]
+timeout_sec = 120.0
+
+[[steps]]
+name = "milestone_3"
+[steps.agent]
+timeout_sec = 900.0
+[steps.verifier]
+timeout_sec = 120.0
