@@ -3,8 +3,10 @@ Milestone 3 tests: OPA eval produces decision.json, stdout lists recoverable sha
 in lexicographic order, stderr carries DENY messages, and exit code is 2 when denials exist.
 """
 
+import hashlib
 import json
 import os
+import random
 import subprocess
 import sys
 import tempfile
@@ -67,7 +69,7 @@ class TestMilestone3:
     def test_stdout_lists_recoverable_paths_sorted(self):
         """stdout must list recoverable paths one per line in lexicographic order."""
         result = run_cli()
-        paths = [l.strip() for l in result.stdout.strip().splitlines() if l.strip()]
+        paths = [line.strip() for line in result.stdout.strip().splitlines() if line.strip()]
         assert len(paths) >= 1
         assert paths == sorted(paths), f"Paths not sorted: {paths}"
         for p in paths:
@@ -83,7 +85,7 @@ class TestMilestone3:
     def test_stderr_has_deny_prefix(self):
         """Each denial message on stderr must be prefixed with DENY:"""
         result = run_cli()
-        deny_lines = [l for l in result.stderr.splitlines() if l.startswith("DENY:")]
+        deny_lines = [line for line in result.stderr.splitlines() if line.startswith("DENY:")]
         assert len(deny_lines) >= 1, f"No DENY: lines on stderr. stderr={result.stderr}"
         assert "shard_c.parquet" in result.stderr or "shard_f.parquet" in result.stderr
 
@@ -114,12 +116,11 @@ class TestMilestone3:
             df.write_parquet(os.path.join(bad_archive, "tiny.parquet"))
             result = run_cli(archive=bad_archive, facts_dir=facts, output_dir=output)
             assert result.returncode == 2
-            deny_lines = [l for l in result.stderr.splitlines() if l.startswith("DENY:")]
-            assert any("No recoverable shards" in l for l in deny_lines)
+            deny_lines = [line for line in result.stderr.splitlines() if line.startswith("DENY:")]
+            assert any("No recoverable shards" in line for line in deny_lines)
 
     def test_all_valid_archive_exits_zero(self):
         """An archive with only valid shards must exit 0 with no DENY messages."""
-        import hashlib, random
         with tempfile.TemporaryDirectory() as tmp:
             good = os.path.join(tmp, "archive")
             facts = os.path.join(tmp, "facts")
@@ -136,12 +137,12 @@ class TestMilestone3:
             shard = os.path.join(good, "good.parquet")
             df.write_parquet(shard)
             h = hashlib.sha256()
-            with open(shard, "rb") as f:
-                for chunk in iter(lambda: f.read(65536), b""):
+            with open(shard, "rb") as fh:
+                for chunk in iter(lambda: fh.read(65536), b""):
                     h.update(chunk)
-            with open(shard + ".sha256", "w") as f:
-                f.write(f"{h.hexdigest()}  good.parquet\n")
+            with open(shard + ".sha256", "w") as fh:
+                fh.write(f"{h.hexdigest()}  good.parquet\n")
             result = run_cli(archive=good, facts_dir=facts, output_dir=output)
             assert result.returncode == 0, f"stderr: {result.stderr}"
-            assert not any(l.startswith("DENY:") for l in result.stderr.splitlines())
-            assert shard in [l.strip() for l in result.stdout.strip().splitlines()]
+            assert not any(line.startswith("DENY:") for line in result.stderr.splitlines())
+            assert shard in [line.strip() for line in result.stdout.strip().splitlines()]

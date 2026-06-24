@@ -9,3 +9,10 @@ python /app/recover.py --archive /app/archive --facts-dir /app/facts --policy /a
 ```
 
 All four args must accept custom paths and create output directories if missing.
+
+Input and output paths used in this milestone:
+- `/app/archive` — directory containing the feature shards
+- `/app/facts/catalog.json` — shard catalog produced in milestone 1
+- `/app/facts/opa_input.json` — OPA input document produced in milestone 2
+- `/app/policy/recover.rego` — Rego policy to evaluate
+- `/app/output/decision.json` — raw OPA eval result written by this milestone

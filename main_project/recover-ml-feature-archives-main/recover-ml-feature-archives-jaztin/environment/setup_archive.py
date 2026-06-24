@@ -11,8 +11,8 @@ Creates /app/archive with a realistic mix of:
 """
 import hashlib
 import os
-import pyarrow as pa
-import pyarrow.parquet as pq
+import random
+
 import polars as pl
 import yaml
 
@@ -21,6 +21,8 @@ os.makedirs(ARCHIVE, exist_ok=True)
 
 REQUIRED_COLS = ["customer_id", "tenure", "monthly_charges", "label"]
 MIN_ROWS = 500
+
+random.seed(42)
 
 
 def sha256_of_file(path: str) -> str:
@@ -52,10 +54,6 @@ def write_yaml(shard_path: str, note: str = "") -> None:
     yaml_path = os.path.join(ARCHIVE, name + ".yaml")
     with open(yaml_path, "w") as f:
         yaml.dump(desc, f)
-
-
-import random
-random.seed(42)
 
 
 def make_churn_rows(n: int, seed: int = 42) -> dict:
