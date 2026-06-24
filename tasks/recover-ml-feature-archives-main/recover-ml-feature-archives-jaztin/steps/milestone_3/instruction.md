@@ -1,18 +1,1 @@
-Wire up the final enforcement step in `/app/recover.py`. It should evaluate the Rego policy at `/app/policy/recover.rego` against `/app/facts/opa_input.json` using the `opa eval` CLI and write the raw result to `/app/output/decision.json`.
-
-After that, print the recoverable shard paths to stdout (one per line, lexicographically sorted) and print any denial messages to stderr prefixed with `DENY:`. Exit with code 2 if there are any denials, 0 otherwise.
-
-The script must be callable as:
-
-```
-python /app/recover.py --archive /app/archive --facts-dir /app/facts --policy /app/policy/recover.rego --output-dir /app/output
-```
-
-All four args must accept custom paths and create output directories if missing.
-
-Input and output paths used in this milestone:
-- `/app/archive` — directory containing the feature shards
-- `/app/facts/catalog.json` — shard catalog produced in milestone 1
-- `/app/facts/opa_input.json` — OPA input document produced in milestone 2
-- `/app/policy/recover.rego` — Rego policy to evaluate
-- `/app/output/decision.json` — raw OPA eval result written by this milestone
+Finally, extend `/app/recover.py` to run `opa eval` using the policy at `/app/policy/recover.rego` with `/app/facts/opa_input.json` as its input, then write the raw evaluation result to `/app/output/decision.json`. After the policy finishes, print every recoverable shard path to stdout in lexicographical order, one path per line, and print any denial messages to stderr with a `DENY:` prefix. The script should exit with status code `0` when there are no denials and `2` if any denials are returned. It should continue to support custom paths for all command-line arguments and create any required output directories automatically.

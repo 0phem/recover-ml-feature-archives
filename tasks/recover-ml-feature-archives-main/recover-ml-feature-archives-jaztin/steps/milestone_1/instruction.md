@@ -1,14 +1,1 @@
-The ChurnShield training pipeline broke after a feature export lost its manifest. `/app/archive` now has a mix of Parquet and CSV shards, YAML descriptors, and `.sha256` checksum files with no record of which shards are safe to use.
-
-Write a script at `/app/recover.py` that uses Polars to scan every Parquet and CSV file in `/app/archive` and produces a catalog at `/app/facts/catalog.json`. Each entry should describe one shard: its absolute path, file type, row count, column names, file size in bytes, and whether its checksum is verified. A shard is checksum-verified only if a `.sha256` file exists for it and the hex digest on the first line matches the actual SHA-256 of the shard file.
-
-Create `/app/facts/` if it doesn't exist. Corrupt or unreadable shards should be skipped with a warning to stderr.
-
-The script must accept the following arguments:
-
-```
-python /app/recover.py --archive /app/archive --facts-dir /app/facts --policy /app/policy/recover.rego --output-dir /app/output
-```
-
-Output files produced by this milestone:
-- `/app/facts/catalog.json` — shard catalog array
+The ChurnShield training pipeline failed before it could save its manifest, so now `/app/archive` is full of Parquet and CSV shards mixed with YAML files and `.sha256` checksums, and there's no easy way to tell which data files are still valid. Write `/app/recover.py` using Polars to scan every Parquet and CSV file in the archive and generate `/app/facts/catalog.json`. Each catalog entry should include the shard's absolute path, file type, row count, column names, file size in bytes, and whether its checksum is valid. A shard should only be marked as verified if a matching `.sha256` file exists and the checksum on its first line matches the SHA-256 hash you compute from the file. Create the facts directory if it doesn't already exist, and if a shard can't be read because it's corrupted or invalid, skip it and print a warning to stderr instead of stopping the script. The script should accept custom paths through the provided command-line arguments.
